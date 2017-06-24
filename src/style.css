@@ -9,9 +9,7 @@ height: 100%;
 margin: 0;
 display: flex;
 
-
 justify-content: center;
-
 
 align-items: center;
 color: white;
@@ -20,8 +18,7 @@ color: white;
 canvas {
   border:2px solid #000;
 }
-$green: #1ECD97;
-$gray: #bbbbbb;
+
 * {
 font-family: 'Open Sans', sans-serif;
 }

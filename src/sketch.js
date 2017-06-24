@@ -15,8 +15,6 @@ var hiddenMenu = false;
 function setup() {
   createCanvas(800, 600);
   game = new Snake();
-  //button1 = createButton('remuse').setVisible(false);
-  //button1.mousePressed(action1);
   frameRate(qw);
   pickLocation();
 }
@@ -38,8 +36,6 @@ function draw() {
   if (game.eat(food)) {
     pickLocation();
   }
-
-
 
   game.death();
   game.update();

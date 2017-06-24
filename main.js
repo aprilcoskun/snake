@@ -3,15 +3,18 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const path = require('path');
 const url = require('url');
-var win;
-app.on('ready',() => {
-  let win = new BrowserWindow({width:822,height:651});
-  win.setMenu(null);
-  win.loadURL('file://' + __dirname + '/src/menu.html');
-  //win.webContents.openDevTools();
 
+app.on('ready',() => {
+  let win = new BrowserWindow({width:820, height:648, resizable:false,
+                                                  title:'Snake', backgroundColor:'#1f1f1f',icon:__dirname + '/assets/snake.ico'});
+  win.loadURL('file://' + __dirname + '/src/menu.html');
+  win.setMenu(null);
+  win.center();
 });
 
-/*function Play() {
-  win.loadURL('file://' + __dirname + '/index.html');
-}*/
+app.on('window-all-closed', app.quit);
+
+app.on('before-quit', () => {
+    mainWindow.removeAllListeners('close');
+    mainWindow.close();
+});
