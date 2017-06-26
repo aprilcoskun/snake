@@ -3,8 +3,8 @@ var lastxspeed;
 var lastyspeed;
 var counter;
 function Snake() {
-  this.x = 0;
-  this.y = 0;
+  this.x = 20;
+  this.y = 20;
   this.xspeed = 1;
   this.yspeed = 0;
   this.total = 0;
@@ -16,11 +16,11 @@ function Snake() {
   this.eat = function(pos) {
     var d = dist(this.x, this.y, pos.x, pos.y);
     if (d < 1) {
-      this.total++;
-      this.counter++;
-      return true;
+        this.total++;
+        this.counter++;
+        return true;
     } else {
-      return false;
+    return false;
     }
   }
 
@@ -38,7 +38,6 @@ function Snake() {
         console.log('starting over');
         this.total = 0;
         this.counter = 1;
-
         this.tail = [];
       }
     }
@@ -47,6 +46,23 @@ function Snake() {
   this.update = function() {
     document.title = "snake - score: " + this.counter;
     if(this.isStopped == 0){
+
+        //wall teleport method(still buggy /*sometimes can't eat after teleport*/)
+        // this x & y pointing beginning of block
+        if(this.x == 780 && this.xspeed == 1) {
+          this.x = -20;
+        }
+        else if(this.x == 0 && this.xspeed == -1 ) {
+          this.x = 780;
+        }
+        if (this.y == 580 && this.yspeed == 1) {
+          this.y = -20;
+        }
+        else if (this.y == 0 && this.yspeed == -1) {
+          this.y = 580;
+        }
+
+
       if (this.total === this.tail.length) {
         for (var i = 0; i < this.tail.length - 1; i++) {
           this.tail[i] = this.tail[i + 1];
