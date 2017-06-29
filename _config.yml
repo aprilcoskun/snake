@@ -1,3 +1,4 @@
 theme: jekyll-theme-tactile
 baseurl: /snake
 title: Snake Game
+description: Cross-platform Snake Game
