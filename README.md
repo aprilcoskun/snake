@@ -1,5 +1,5 @@
 
-# Classic Snake Game ![Logo][logo]
+## ![Logo][logo] Classic Snake Game
 
 Example Snake Game using Electron.io & P5.js
 
@@ -12,12 +12,16 @@ Example Snake Game using Electron.io & P5.js
 
 ### Download :
 
-[Windows]({{ site.baseurl }}/assets/Snake-setup.exe)
+[Windows](https://github.com/alpcoskun/snake/releases/download/v0.2.1/Snake-win32.exe)
 
-[Windows Portable]({{ site.baseurl }}/assets/Snake-win32-portable.zip)
+[Windows Portable](https://github.com/alpcoskun/snake/releases/download/v0.2.1/Snake-win32-portable.zip)
 
-[Linux]({{ site.baseurl }}/assets/Snake-linux.zip)
+[Linux](https://github.com/alpcoskun/snake/releases/download/v0.2.1/Snake-linux.zip)
+
+[Source Code(zip)](https://github.com/alpcoskun/snake/archive/v0.2.1.zip)
+
+[Source Code(tar.gz)](https://github.com/alpcoskun/snake/archive/v0.2.1.tar.gz)
 
 [logo]: {{site.baseurl}}/assets/snake.png
 [ss1]: {{site.baseurl}}/assets/ss.png
-[ss2]: {{site.baseurl}}/assets/ss2.PNG
+[ss2]: {{site.baseurl}}/assets/ss2.png
