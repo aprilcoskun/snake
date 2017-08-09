@@ -16,7 +16,9 @@ Example Snake Game using Electron.io & P5.js
 
 [Windows Portable](https://github.com/alpcoskun/snake/releases/download/v0.3.0/Snake-win32-portable.zip)
 
-[Linux](https://github.com/alpcoskun/snake/releases/download/v0.2.2/Snake-linux.zip)
+[Linux 32bit](https://github.com/alpcoskun/snake/releases/download/v0.3.0/snake-linux-32bit.zip)
+
+[Linux 64bit](https://github.com/alpcoskun/snake/releases/download/v0.3.0/snake-linux-64bit.zip)
 
 [Source Code(zip)](https://github.com/alpcoskun/snake/archive/v0.2.2.zip)
 
