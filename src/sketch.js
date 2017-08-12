@@ -4,6 +4,7 @@ var difficulty = getSearchParameters();
 var food;
 var remuseButton ;
 var hiddenMenu = false;
+var lastKeyPressed;
 
 function setup() {
   createCanvas(800, 600);
@@ -32,17 +33,21 @@ function draw() {
 }
 
 function keyPressed() {
-  if (keyCode === UP_ARROW || keyCode === 87) {
-    game.dir(0, -1);
-  } else if (keyCode === DOWN_ARROW || keyCode === 83) {
-    game.dir(0, 1);
-  } else if (keyCode === RIGHT_ARROW || keyCode === 68) {
-    game.dir(1, 0);
-  } else if (keyCode === LEFT_ARROW || keyCode === 65) {
-    game.dir(-1, 0);
-  } else if (keyCode === 32){
-      pause();
-  }
+	if (lastKeyPressed !== keyCode) {
+	  if ((keyCode === UP_ARROW || keyCode === 87) && lastKeyPressed !== DOWN_ARROW) {
+	    game.dir(0, -1);
+	  } else if ((keyCode === DOWN_ARROW || keyCode === 83) && lastKeyPressed !== UP_ARROW) {
+	    game.dir(0, 1);
+	  } else if ((keyCode === RIGHT_ARROW || keyCode === 68) && lastKeyPressed !== LEFT_ARROW) {
+	    game.dir(1, 0);
+	  } else if ((keyCode === LEFT_ARROW || keyCode === 65) && lastKeyPressed !== RIGHT_ARROW) {
+	    game.dir(-1, 0);
+	  } else if (keyCode === 32){
+	      pause();
+	  }
+	}
+
+	lastKeyPressed = keyCode;
 }
 
 function pause() {

@@ -4,8 +4,10 @@ const BrowserWindow = electron.BrowserWindow;
 const path = require('path');
 const url = require('url');
 
+let win;
+
 app.on('ready',() => {
-  let win = new BrowserWindow({width:820, height:646, resizable:false,
+  win = new BrowserWindow({width:820, height:646, resizable:false,
                                                   title:'Snake', backgroundColor:'#1f1f1f',icon:__dirname + '/assets/snake.ico'});
   win.loadURL('file://' + __dirname + '/src/menu.html');
   win.setMenu(null);
@@ -15,6 +17,6 @@ app.on('ready',() => {
 app.on('window-all-closed', app.quit);
 
 app.on('before-quit', () => {
-    mainWindow.removeAllListeners('close');
-    mainWindow.close();
+    win.removeAllListeners('close');
+    win.close();
 });
