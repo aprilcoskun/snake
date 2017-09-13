@@ -8,7 +8,7 @@ let win;
 
 app.on('ready',() => {
   win = new BrowserWindow({width:820, height:646, resizable:false,
-                                                  title:'Snake', backgroundColor:'#1f1f1f',icon:__dirname + '/assets/snake.ico'});
+                                                  title:'Snake', backgroundColor:'#1f1f1f',icon:__dirname + '/assets/snake256.png'});
   win.loadURL('file://' + __dirname + '/src/menu.html');
   win.setMenu(null);
   win.center();
