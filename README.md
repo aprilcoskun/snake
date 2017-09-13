@@ -1,7 +1,7 @@
 
-## ![logo][logo] Classic Snake Game
-
-Example Snake Game using Electron.io & P5.js
+##  Classic Snake Game
+![logo][logo]
+ Example Game using Electron.io & P5.js
 
 ### ScreenShots :
 
@@ -22,6 +22,6 @@ Example Snake Game using Electron.io & P5.js
 
 [Source Code(tar.gz)](https://github.com/alpcoskun/snake/archive/v0.3.1.tar.gz)
 
-[logo]: (https://raw.githubusercontent.com/alpcoskun/snake/master/assets/snake256.png)
+[logo]: https://raw.githubusercontent.com/alpcoskun/snake/master/assets/snake256.png
 [ss1]: {{site.baseurl}}/assets/ss.png
 [ss2]: {{site.baseurl}}/assets/ss2.png
