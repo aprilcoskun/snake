@@ -6,11 +6,15 @@
   "scripts": {
     "start": "electron .",
     "clean": "rimraf dist",
-    "pack32": "electron-packager . snake --platform linux --arch ia32 --out dist/ --ignore \"(dist|node_modules/electron.*)\"",
-    "pack64": "electron-packager . snake --platform linux --arch x64 --out dist/ --ignore \"(dist|node_modules/electron.*)\"",
-    "deb32": "electron-installer-debian --src dist/snake-linux-ia32/ --dest dist/installers/ --arch i386 --config config.json",
-    "deb64": "electron-installer-debian --src dist/snake-linux-x64/ --dest dist/installers/ --arch amd64 --config config.json",
-    "build": "npm run clean && npm run pack32 && npm run deb32 && npm run pack64 && npm run deb64"
+    "packwin": "electron-packager . snake --platform win32 --arch ia32 --out dist/ --icon=assets/snake.ico --ignore \"(dist|node_modules/electron.*)\"",
+    "pack32": "electron-packager . snake --platform linux --arch ia32 --out dist/ --icon=assets/snake.png --ignore \"(dist|node_modules/electron.*)\"",
+    "pack64": "electron-packager . snake --platform linux --arch x64 --out dist/ --icon=assets/snake.png --ignore \"(dist|node_modules/electron.*)\"",
+    "deb32": "electron-installer-debian --src dist/snake-linux-ia32/ --dest dist/installers/ --arch i386 --config deb_config.json",
+    "deb64": "electron-installer-debian --src dist/snake-linux-x64/ --dest dist/installers/ --arch amd64 --config deb_config.json",
+    "rpm32": "electron-installer-redhat --src dist/snake-linux-ia32/ --dest dist/installers/ --arch x86 --config rpm_config.json",
+    "rpm64": "electron-installer-redhat --src dist/snake-linux-x64/ --dest dist/installers/ --arch x86_64 --config rpm_config.json",
+    "debbuild": "npm run clean && npm run pack32 && npm run deb32 && npm run pack64 && npm run deb64",
+    "rpmbuild": "npm run clean && npm run pack32 && npm run rpm32 && npm run pack64 && npm run rpm64"
   },
   "author": "Alperen Coşkun <dev@alpcoskun.com>",
   "repository": {
@@ -20,7 +24,6 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^1.7.6",
-    "electron-installer-debian": "^0.5.2",
     "electron-packager": "^9.0.1",
     "rimraf": "^2.6.2"
   }
