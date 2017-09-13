@@ -1,5 +1,5 @@
 
-## ![Logo][logo] Classic Snake Game
+## ![logo] Classic Snake Game
 
 Example Snake Game using Electron.io & P5.js
 
