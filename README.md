@@ -22,6 +22,6 @@ Example Snake Game using Electron.io & P5.js
 
 [Source Code(tar.gz)](https://github.com/alpcoskun/snake/archive/v0.3.1.tar.gz)
 
-[logo]: {{site.baseurl}}/assets/snake.png
+[logo]: https://raw.githubusercontent.com/alpcoskun/snake/master/assets/snake256.png
 [ss1]: {{site.baseurl}}/assets/ss.png
 [ss2]: {{site.baseurl}}/assets/ss2.png
