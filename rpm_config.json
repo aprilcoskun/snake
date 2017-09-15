@@ -1,0 +1,5 @@
+{
+    "icon": "assets/snake.png",
+    "categories": ["Game"],
+    "bin": "snake"
+}
