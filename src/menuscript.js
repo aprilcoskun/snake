@@ -18,3 +18,8 @@ function exit() {
   win.close();
   remote.app.quit();
 }
+function credit() {
+  let shell = require('electron').shell;
+  event.preventDefault();
+  shell.openExternal('https://alpcoskun.com');
+}

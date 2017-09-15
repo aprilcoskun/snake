@@ -6,19 +6,15 @@ html, body {
 background-color: #1f1f1f;
 height: 100%;
 overflow:hidden;
+font: caption;
 }
 
 body {
-
 color: white;
-
 }
+
 canvas {
   border:1px solid #000;
-}
-
-* {
-font-family: 'Open Sans', sans-serif;
 }
 
 .container {
@@ -30,8 +26,18 @@ font-family: 'Open Sans', sans-serif;
 }
 
 p {
-  margin-top: 100px;
   text-align: center;
+}
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.1em;
+  text-align: center;
+}
+a {
+  color: #ddd;
 }
 select {
   -webkit-appearance: none;
@@ -46,7 +52,7 @@ select {
   width: 100%;
   width: calc(100%);
   &:focus {
-      outline: none;
+    outline: none;
   }
 }
 button {
