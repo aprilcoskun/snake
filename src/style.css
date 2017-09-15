@@ -1,108 +1,82 @@
+/*
+*   The code down below is too ugly because my css skillz
+*/
+
+
 html, body {
-  background-color: #1f1f1f;
+background-color: #1f1f1f;
 height: 100%;
+overflow:hidden;
 }
 
 body {
-background-color: #1f1f1f;
-height: 100%;
-margin: 0;
-display: flex;
 
-justify-content: center;
-
-align-items: center;
 color: white;
 
 }
 canvas {
-  border:2px solid #000;
+  border:1px solid #000;
 }
 
 * {
 font-family: 'Open Sans', sans-serif;
 }
+
 .container {
-position: absolute;
-top:20%;
-left:50%;
-margin-left: -65px;
-margin-top: -20px;
-width: 130px;
-height: 40px;
-text-align: center;
-}
-.container2 {
   position: absolute;
-  top:35%;
-  left: 50%;
-  margin-left: -65px;
-  margin-top: 20px;
-  width: 130px;
-  height: 40px;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
   text-align: center;
 }
+
+p {
+  margin-top: 100px;
+  text-align: center;
+}
+select {
+  -webkit-appearance: none;
+  background-color: #eee;
+  border-width: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  float: left;
+  font-size: 0.8em;
+  line-height: 0.8em;
+  padding: 0.8em 0.8em;
+  width: 100%;
+  width: calc(100%);
+  &:focus {
+      outline: none;
+  }
+}
 button {
-outline:none;
-height: 40px;
-opacity: 0.5;
-text-align: center;
-width: 130px;
-border-radius:40px;
-background: #fff;
-border: 2px solid $green;
-color:$green;
-letter-spacing:1px;
-text-shadow:0;
-font:{
-size:12px;
-weight:bold;
-}
-cursor: pointer;
-transition: all 0.25s ease;
-&:hover {
-color:white;
-background: $green;
-}
-&:active {
-//letter-spacing: 2px;
-letter-spacing: 2px ;
-}
-&:after {
-content:"SUBMIT";
-}
-}
-.onclic {
-width: 40px;
-border-color:$gray;
-border-width:3px;
-font-size:0;
-border-left-color:$green;
-animation: rotating 2s 0.25s linear infinite;
-
-&:after {
-content:"";
-}
-&:hover {
-color:$green;
-background: white;
-}
-}
-.validate {
-font-size:13px;
-color: white;
-background: $green;
-&:after {
-font-family:'FontAwesome';
-content:"\f00c";
-}
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 2em;
+  font-weight: bold;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  position: relative;
+  text-align: center;
 }
 
-@keyframes rotating {
-from {
-transform: rotate(0deg);
+button:hover {
+  -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  -webkit-mask-size: 200%;
+  animation: shine 1s infinite;
 }
-to {
-transform: rotate(360deg);
-}
+
+@-webkit-keyframes shine {
+  from {
+    -webkit-mask-position: 150%;
+  }
+
+  to {
+    -webkit-mask-position: -50%;
+  }
 }

@@ -1,6 +1,6 @@
 {
   "name": "Snake",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "description": "Desktop Classic Snake Game",
   "main": "main.js",
   "scripts": {

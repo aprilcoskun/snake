@@ -1,11 +1,20 @@
-  var selectElem = document.getElementById('select');
-  var c=selectElem.value;
+const remote = require('electron').remote;
+let win;
+let selectElem = document.getElementById('select');
+let c = selectElem.value;
 
-  selectElem.addEventListener('change', function() {
-    c = selectElem.value;
-  });
+selectElem.addEventListener('change', () => {
+  c = selectElem.value;
+});
 
-  function play() {
-    var url = "index.html?" + c;
-    window.location.href=url;
-  }
+function play() {
+  let url = "index.html?" + c;
+  window.location.href=url;
+}
+
+function exit() {
+  win = remote.getCurrentWindow();
+  win.removeAllListeners('close');
+  win.close();
+  remote.app.quit();
+}
