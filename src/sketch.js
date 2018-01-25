@@ -1,18 +1,24 @@
 let game;
 let scl = 20;
 let food;
-
+let db = require('electron').remote.getCurrentWindow().db;
 function setup() {
-  createCanvas(800, 600);
-  game = new Snake();
-  frameRate(Number(window.location.search.substring(1).split('?')));
+  let { width, height, level } = db.get('config').value();
+  let highestScore = db.get('highestScore').value();
+  createCanvas(width-2, height-2);
+  game = new Snake(width-2, height-2, db, highestScore);
+  frameRate(level);
+  
   spawnFood();
 }
 
 function draw() {
   background(31);
 
-  if (game.eat(food)) spawnFood();
+  if (game.eat(food)) {
+    game.total++;
+    spawnFood();
+  }
 
   game.death();
   game.update();

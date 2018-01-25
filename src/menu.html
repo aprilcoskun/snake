@@ -4,58 +4,39 @@
   <head>
     <title>Snake</title>
     <link rel="stylesheet" href="style.css" type="text/css">
-    <script type="text/javascript">    
-      window.resizeTo(804, 604);
+    <script>
+      const win = require('electron').remote.getCurrentWindow();
 
-      const remote = require('electron').remote;
-      let win;
-      let level = 20;
+      resizeTo(
+        win.db.get('config').value().width,
+        win.db.get('config').value().height
+      );
 
-      window.onload = () => {
-        level = document.getElementById('level').value;
-        document.getElementById('level').addEventListener('change', () => {
-          level = document.getElementById('level').value;
-        });
-      }
+      let level = win.db.get('config').value().level;
 
-      function play() {
-        window.location.href = `index.html?${level}`;
+      onload = () => {
+        let highestScore = win.db.get('highestScore').value();
+        if(highestScore)
+          document.title = `Your Highest Score : ${highestScore}`;
       }
 
       function exit() {
-        win = remote.getCurrentWindow();
         win.removeAllListeners('close');
         win.close();
         remote.app.quit();
       }
 
       function credit() {
-        let shell = require('electron').shell;
-        event.preventDefault();
-        shell.openExternal('https://alpcoskun.com');
+        require('electron').shell.openExternal('https://alpcoskun.com');
       }
     </script>
   </head>
 
   <body>
-    <br>
     <div class="container">
-      <form action="javascript:play()">
-        <select id="level">
-          <option value="40">HARDEST</option>
-          <option value="30">HARD</option>
-          <option value="20" selected>NORMAL</option>
-          <option value="15">EASY</option>
-          <option value="10">SANDBOX</option>
-        </select>
-        <br>
-        <br>
-        <br>
-        <button href="index.html" type="submit">Play</button>
-      </form>
-      <form action="howto.html">
-        <button href="howto.html" type="submit">How to Play?</button>
-      </form>
+      <button onclick="location = `index.html?${level}`">Play</button>
+      <button onclick="location = 'howto.html'">How to Play?</button>
+      <button onclick="location = 'settings.html'">Settings</button>
       <button onclick="exit()">Exit</button>
     </div>
     <footer>

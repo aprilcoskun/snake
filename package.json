@@ -1,6 +1,6 @@
 {
   "name": "snake",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Classic Snake Game",
   "main": "main.js",
   "scripts": {
@@ -25,5 +25,8 @@
   "devDependencies": {
     "electron": "1.7.11",
     "electron-packager": "10.1.0"
+  },
+  "dependencies": {
+    "lowdb": "^1.0.0"
   }
 }

@@ -1,5 +1,5 @@
 class Snake {
-  constructor() {
+  constructor(width, height, db, highestScore) {
     this.x = 20;
     this.y = 20;
     this.xspeed = 1;
@@ -9,13 +9,15 @@ class Snake {
     this.isStopped = false;
     this.lastxspeed = 0;
     this.lastyspeed = 0;
+    this.height = height;
+    this.width = width;
+    this.db = db;
+    this.highestScore = highestScore;
   }
 
   eat(pos) {
-    if (dist(this.x, this.y, pos.x, pos.y) < 1) {
-      this.total++;
-      return true;
-    } else return false;
+    if (dist(this.x, this.y, pos.x, pos.y) < 1) return true;
+    else return false;
   }
 
   dir(x, y) {
@@ -24,21 +26,34 @@ class Snake {
   }
 
   death() {
-    if (!this.isStopped)
+    if (!this.isStopped) {
+      let score = this.tail.length;
+      if (!this.highestScore)
+        this.db
+          .set('highestScore', score)
+          .set('highestScore', score)
+          .write();
+      else if (score > this.highestScore)
+        this.db
+          .set('highestScore', score)
+          .set('highestScore', score)
+          .write();
+
       for (let i = 0; i < this.tail.length; i++)
         if (dist(this.x, this.y, this.tail[i].x, this.tail[i].y) < 1) {
           this.total = 0;
           this.tail = [];
         }
+    }
   }
 
   update() {
     document.title = `Score: ${this.tail.length}`;
     if (!this.isStopped) {
-      if (this.x === 780 && this.xspeed === 1) this.x = -20;
-      else if (this.x === 0 && this.xspeed === -1) this.x = 800;
-      if (this.y === 580 && this.yspeed === 1) this.y = -20;
-      else if (this.y === 0 && this.yspeed === -1) this.y = 600;
+      if (this.x === this.width - 20 && this.xspeed === 1) this.x = -20;
+      else if (this.x === 0 && this.xspeed === -1) this.x = this.width;
+      if (this.y === this.height - 20 && this.yspeed === 1) this.y = -20;
+      else if (this.y === 0 && this.yspeed === -1) this.y = this.height;
 
       if (this.total === this.tail.length)
         for (let i = 0; i < this.tail.length - 1; i++)
