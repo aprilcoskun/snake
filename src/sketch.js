@@ -1,21 +1,18 @@
 let game;
 let scl = 20;
-let difficulty = getSearchParameters();
 let food;
 
 function setup() {
   createCanvas(800, 600);
   game = new Snake();
-  frameRate(difficulty);
-  pickLocation();
+  frameRate(Number(window.location.search.substring(1).split('?')));
+  spawnFood();
 }
 
 function draw() {
   background(31);
 
-  if (game.eat(food)) {
-    pickLocation();
-  }
+  if (game.eat(food)) spawnFood();
 
   game.death();
   game.update();
@@ -34,30 +31,19 @@ function keyPressed() {
     game.dir(1, 0);
   } else if ((keyCode === LEFT_ARROW || keyCode === 65) && game.xspeed != 1) {
     game.dir(-1, 0);
-  } else if (keyCode === 32){
-      pause();
+  } else if (keyCode === 32) {
+    pause();
   }
 }
 
 function pause() {
-  if(game.isStopped){
-    game.remuse();
-    document.getElementById('pause-menu').style.display = 'none';
-  }
-  else{
-    game.stop();
-    document.getElementById('pause-menu').style.display = 'block';
-  }
+  if (game.isStopped) game.remuse();
+  else game.stop();
 }
 
-function pickLocation() {
-  let cols = floor(width/scl);
-  let rows = floor(height/scl);
+function spawnFood() {
+  let cols = floor(width / scl);
+  let rows = floor(height / scl);
   food = createVector(floor(random(cols)), floor(random(rows)));
   food.mult(scl);
-}
-
-function getSearchParameters() {
-  let data = window.location.search.substring(1).split("?");
-  return Number(data);
 }

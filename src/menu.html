@@ -1,28 +1,68 @@
-<head>
-  <link rel="stylesheet" href="style.css" type="text/css">
-  <title>snake</title>
-</head>
+<!DOCTYPE html>
+<html>
 
-<body>
-  <br>
-  <div class="container">
-    <form action="javascript:play()">
-      <select id="select">
+  <head>
+    <title>Snake</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript">    
+      window.resizeTo(804, 604);
+
+      const remote = require('electron').remote;
+      let win;
+      let level = 20;
+
+      window.onload = () => {
+        level = document.getElementById('level').value;
+        document.getElementById('level').addEventListener('change', () => {
+          level = document.getElementById('level').value;
+        });
+      }
+
+      function play() {
+        window.location.href = `index.html?${level}`;
+      }
+
+      function exit() {
+        win = remote.getCurrentWindow();
+        win.removeAllListeners('close');
+        win.close();
+        remote.app.quit();
+      }
+
+      function credit() {
+        let shell = require('electron').shell;
+        event.preventDefault();
+        shell.openExternal('https://alpcoskun.com');
+      }
+    </script>
+  </head>
+
+  <body>
+    <br>
+    <div class="container">
+      <form action="javascript:play()">
+        <select id="level">
           <option value="40">HARDEST</option>
           <option value="30">HARD</option>
           <option value="20" selected>NORMAL</option>
           <option value="15">EASY</option>
           <option value="10">SANDBOX</option>
-      </select><br><br><br>
-      <button href="index.html" type="submit">Play</button>
-    </form>
-    <form action="howto.html">
-      <button href="howto.html" type="submit">How to Play?</button>
-    </form>
-    <button onclick="exit();">Exit</button>
-  </div>
-  <footer>
-    <p>made by <a onclick="credit()" href="#">alpcoskun</a></p>
-  </footer>
-</body>
-<script src="menuscript.js"type="text/javascript"></script>
+        </select>
+        <br>
+        <br>
+        <br>
+        <button href="index.html" type="submit">Play</button>
+      </form>
+      <form action="howto.html">
+        <button href="howto.html" type="submit">How to Play?</button>
+      </form>
+      <button onclick="exit()">Exit</button>
+    </div>
+    <footer>
+      <p>made by
+        <a onclick="credit()" href="#">alpcoskun</a>
+      </p>
+    </footer>
+  </body>
+
+</html>

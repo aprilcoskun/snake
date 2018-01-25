@@ -1,6 +1,6 @@
 {
-  "name": "Snake",
-  "version": "0.4.2",
+  "name": "snake",
+  "version": "0.5.0",
   "description": "Classic Snake Game",
   "main": "main.js",
   "scripts": {
