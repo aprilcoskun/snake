@@ -1,11 +1,11 @@
 {
   "name": "Snake",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Classic Snake Game",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "clean": "rimraf dist",
+    "clean": "rm -rf dist",
     "packwin": "electron-packager . snake --platform win32 --arch ia32 --out dist/ --icon=assets/snake.ico --ignore \"(dist|node_modules/electron.*)\" --asar=true",
     "pack32": "electron-packager . snake --platform linux --arch ia32 --out dist/ --icon=assets/snake.png --ignore \"(dist|node_modules/electron.*)\" --asar=true",
     "pack64": "electron-packager . snake --platform linux --arch x64 --out dist/ --icon=assets/snake.png --ignore \"(dist|node_modules/electron.*)\" --asar=true",
@@ -23,8 +23,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "electron": "^1.7.6",
-    "electron-packager": "^9.0.1",
-    "rimraf": "^2.6.2"
+    "electron": "1.7.11",
+    "electron-packager": "10.1.0"
   }
 }
