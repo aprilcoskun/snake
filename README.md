@@ -1,7 +1,4 @@
 # Snake Game
 Example Snake Game using electron & p5.js
 
-##### Install dependencies and run the app
-```
-npm install && npm start
-```
+Inspired by [Coding Train](https://github.com/CodingTrain/Rainbow-Code/tree/master/CodingChallenges/CC_03_Snake_game_p5.js)
