@@ -5,15 +5,7 @@ const db = require('lowdb')(new FileSync(`${app.getPath('userData')}/db.json`));
 
 let win;
 
-db
-  .defaults({
-    config: {
-      width: 802,
-      height: 602,
-      level:20
-    }
-  })
-  .write();
+db.defaults({ config: { width: 802, height: 602, level: 20 } }).write();
 
 app.on('ready', () => {
   win = new electron.BrowserWindow({
