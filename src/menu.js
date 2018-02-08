@@ -1,11 +1,15 @@
 const win = require('electron').remote.getCurrentWindow();
 
 resizeTo(
-  win.db.get('config').value().width,
-  win.db.get('config').value().height
+  process.platform === 'win32'
+    ? win.db.get('config').value().width + 10
+    : win.db.get('config').value().width,
+  process.platform === 'win32'
+    ? win.db.get('config').value().height + 34
+    : win.db.get('config').value().height
 );
 
-let level = win.db.get('config').value().level;
+const level = win.db.get('config').value().level;
 
 onload = () => {
   let highestScore = win.db.get('highestScore').value();

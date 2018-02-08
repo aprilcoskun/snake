@@ -16,16 +16,22 @@ app.on('ready', () => {
     resizable: false,
     title: 'Snake',
     useContentSize: true,
-    width: db.get('config').value().width,
-    height: db.get('config').value().height
+    width:
+      process.platform === 'win32'
+        ? db.get('config').value().width + 10
+        : db.get('config').value().width,
+    height:
+      process.platform === 'win32'
+        ? db.get('config').value().height + 34
+        : db.get('config').value().height
   });
   win.db = db;
   win.loadURL(`file://${__dirname}/src/menu.html`);
 });
 
-app.on('window-all-closed', app.quit);
-
-app.on('before-quit', () => {
-  win.removeAllListeners('close');
-  win.close();
+app.on('window-all-closed', () => {
+  
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
 });
