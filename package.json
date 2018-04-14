@@ -1,12 +1,13 @@
 {
   "name": "snake",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Classic Snake Game",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "clean": "rm -rf dist",
     "packwin": "electron-packager . snake --platform win32 --arch ia32 --out dist/ --icon=assets/snake.ico --ignore \"(dist|node_modules/electron.*)\" --asar=true",
+    "packosx": "electron-packager . snake --platform darwin --arch x64 --out dist/ --icon=assets/snake.ico --ignore \"(dist|node_modules/electron.*)\" --asar=true",
     "pack32": "electron-packager . snake --platform linux --arch ia32 --out dist/ --icon=assets/snake.png --ignore \"(dist|node_modules/electron.*)\" --asar=true",
     "pack64": "electron-packager . snake --platform linux --arch x64 --out dist/ --icon=assets/snake.png --ignore \"(dist|node_modules/electron.*)\" --asar=true",
     "deb32": "electron-installer-debian --src dist/snake-linux-ia32/ --dest dist/installers/ --arch i386 --config deb_config.json",
