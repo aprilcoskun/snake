@@ -5,10 +5,15 @@ let db = require('electron').remote.getCurrentWindow().db;
 function setup() {
   let { width, height, level } = db.get('config').value();
   let highestScore = db.get('highestScore').value();
-  createCanvas(width-2, height-2);
-  game = new Snake(width-2, height-2, db, highestScore);
+  if (process.platform === 'darwin') {
+    createCanvas(width - 2, height - 22);
+    game = new Snake(width - 2, height - 22, db, highestScore);
+  } else {
+    createCanvas(width - 2, height - 2);
+    game = new Snake(width - 2, height - 2, db, highestScore);
+  }
   frameRate(level);
-  
+
   spawnFood();
 }
 

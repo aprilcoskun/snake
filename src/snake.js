@@ -30,13 +30,13 @@ class Snake {
       let score = this.tail.length;
       if (!this.highestScore)
         this.db
-          .set('highestScore', score)
-          .set('highestScore', score)
+          .set("highestScore", score)
+          .set("highestScore", score)
           .write();
       else if (score > this.highestScore)
         this.db
-          .set('highestScore', score)
-          .set('highestScore', score)
+          .set("highestScore", score)
+          .set("highestScore", score)
           .write();
 
       for (let i = 0; i < this.tail.length; i++)
@@ -75,11 +75,11 @@ class Snake {
     this.lastyspeed = this.yspeed;
     this.xspeed = 0;
     this.yspeed = 0;
-    document.getElementById('pause-menu').style.display = 'block';
+    document.getElementById("pause-menu").style.display = "block";
   }
 
   remuse() {
-    document.getElementById('pause-menu').style.display = 'none';
+    document.getElementById("pause-menu").style.display = "none";
     this.isStopped = false;
     this.xspeed = this.lastxspeed;
     this.yspeed = this.lastyspeed;
