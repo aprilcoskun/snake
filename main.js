@@ -1,10 +1,11 @@
 const electron = require('electron');
+const touch = require('touch');
 const app = electron.app;
 const FileSync = require('lowdb/adapters/FileSync');
+touch.sync(`${app.getPath('userData')}/db.json`);
 const db = require('lowdb')(new FileSync(`${app.getPath('userData')}/db.json`));
 
 let win;
-
 db.defaults({ config: { width: 802, height: 602, level: 20 } }).write();
 
 app.on('ready', () => {
@@ -30,7 +31,6 @@ app.on('ready', () => {
 });
 
 app.on('window-all-closed', () => {
-  
   if (process.platform !== 'darwin') {
     app.quit();
   }
