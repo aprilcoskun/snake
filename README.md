@@ -12,6 +12,8 @@
 
 ### Download :
 
+[Os X](https://github.com/alpcoskun/snake/releases/download/v0.6.0/snake_0.6.0_darwin.zip)
+
 [Windows](https://github.com/alpcoskun/snake/releases/download/v0.6.0/snake_0.6.0_win32.exe)
 
 [Linux 32bit](https://github.com/alpcoskun/snake/releases/download/v0.6.0/Snake_0.6.0_i386.deb)
