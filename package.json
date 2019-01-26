@@ -17,7 +17,7 @@
     "debbuild": "npm run clean && npm run pack32 && npm run deb32 && npm run pack64 && npm run deb64",
     "rpmbuild": "npm run clean && npm run pack32 && npm run rpm32 && npm run pack64 && npm run rpm64"
   },
-  "author": "Alperen Coşkun <dev@alpcoskun.com>",
+  "author": "Nisan Coşkun <dev@alpcoskun.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/alpcoskun/snake.git"
