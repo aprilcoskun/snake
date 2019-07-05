@@ -20,7 +20,7 @@
   "author": "Nisan Coşkun <dev@alpcoskun.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alpcoskun/snake.git"
+    "url": "https://github.com/aprilcoskun/snake.git"
   },
   "license": "MIT",
   "dependencies": {
